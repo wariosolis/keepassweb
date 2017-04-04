@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Sinrumbo - {{.title}}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/public/css/bootstrap-3.3.6.min.css">
+	<link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+	<script src="/public/js/jquery-2.2.4.min.js"></script>
+	<script src="/public/js/bootstrap-3.3.6.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/public/css/style.css"> {{range .moreStyles}}
+	<link rel="stylesheet" type="text/css" href="/public/{{.}}"> {{end}} {{range .moreScripts}}
+	<script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+	{{end}}
+	<style id='astrid-style-inline-css' type='text/css'>
+		.site-header {
+			position: fixed;
+		}
+
+		.woocommerce .woocommerce-message:before,
+		.woocommerce #payment #place_order,
+		.woocommerce-page #payment #place_order,
+		.woocommerce .cart .button,
+		.woocommerce .cart input.button,
+		.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+		.woocommerce #review_form #respond .form-submit input,
+		.woocommerce a.button,
+		.woocommerce div.product form.cart .button,
+		.woocommerce .star-rating,
+		.page-header .page-title .fa,
+		.site-footer a:hover,
+		.footer-info a:hover,
+		.footer-widgets a:hover,
+		.testimonial-title a:hover,
+		.employee-title a:hover,
+		.fact .fa,
+		.service-title a:hover,
+		.widget-area .widget a:hover,
+		.entry-meta a:hover,
+		.entry-footer a:hover,
+		.entry-title a:hover,
+		.comment-navigation a:hover,
+		.posts-navigation a:hover,
+		.post-navigation a:hover,
+		.main-navigation a:hover,
+		.main-navigation li.focus>a,
+		a,
+		a:hover,
+		button,
+		.button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"] {
+			color: #006aff
+		}
+
+		.social-menu-widget a,
+		.woocommerce span.onsale,
+		.woocommerce #payment #place_order:hover,
+		.woocommerce-page #payment #place_order:hover,
+		.woocommerce .cart .button:hover,
+		.woocommerce .cart input.button:hover,
+		.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover,
+		.woocommerce #review_form #respond .form-submit input:hover,
+		.woocommerce div.product form.cart .button:hover,
+		.woocommerce a.button:hover,
+		.preloader-inner ul li,
+		.progress-animate,
+		button:hover,
+		.button:hover,
+		input[type="button"]:hover,
+		input[type="reset"]:hover,
+		input[type="submit"]:hover {
+			background-color: #006aff
+		}
+
+		.woocommerce .woocommerce-message,
+		.woocommerce #payment #place_order,
+		.woocommerce-page #payment #place_order,
+		.woocommerce .cart .button,
+		.woocommerce .cart input.button,
+		.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+		.woocommerce #review_form #respond .form-submit input,
+		.woocommerce a.button,
+		.woocommerce div.product form.cart .button,
+		.main-navigation li a::after,
+		.main-navigation li a::before,
+		button,
+		.button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"] {
+			border-color: #006aff
+		}
+
+		.site-title a,
+		.site-title a:hover {
+			color: #8c8c8c
+		}
+
+		.site-description {
+			color: #BDBDBD
+		}
+
+		.site-header,
+		.site-header.header-scrolled {
+			background-color: rgba(255, 255, 255, 0.9)
+		}
+
+		body,
+		.widget-area .widget,
+		.widget-area .widget a {
+			color: #656D6D
+		}
+
+		.footer-widgets,
+		.site-footer,
+		.footer-info {
+			background-color: #f7f7f7
+		}
+
+		body {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.fact .fact-number,
+		.fact .fact-name {
+			font-family: 'Lato', sans-serif;
+		}
+
+		.site-title {
+			font-size: 43px;
+		}
+
+		.site-description {
+			font-size: 15px;
+		}
+
+		h1 {
+			font-size: 43px;
+		}
+
+		h2 {
+			font-size: 13px;
+		}
+
+		h3 {
+			font-size: 24px;
+		}
+
+		h4 {
+			font-size: 16px;
+		}
+
+		h5 {
+			font-size: 14px;
+		}
+
+		h6 {
+			font-size: 13px;
+		}
+
+		body {
+			font-size: 14px;
+		}
+
+		body.custom-background {
+		    background-image: url(/public/img/custom-background.png);
+		    background-repeat: repeat;
+		    background-position: top center;
+		    background-attachment: fixed;
+		}
+	</style>
+	<link rel='stylesheet' id='astrid-body-fonts-css' href='//fonts.googleapis.com/css?family=Montserrat&#038;ver=4.6.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='astrid-headings-fonts-css' href='//fonts.googleapis.com/css?family=Lato&#038;ver=4.6.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='font-awesome-css' href='/public/fonts/font-awesome.min.css?ver=4.6.4' type='text/css' media='all' />
+	<link rel='stylesheet' id='font-awesome-css' href='/public/css/sinrumbo.css' type='text/css' media='all' />
+</head>
+
+<body class="home page page-id-2264 page-template page-template-page-templates page-template-page_widgetized page-template-page-templatespage_widgetized-php custom-background wp-custom-logo group-blog">
+	<div id="page" class="site">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		{{template "nav-bar.html" .}}
