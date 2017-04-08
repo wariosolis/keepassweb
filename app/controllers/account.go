@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"github.com/revel/revel"
 	"golang.org/x/crypto/bcrypt"
 	"keepassweb/app/models"
@@ -55,16 +56,24 @@ func (c Account) RegisterPost(Email string, Name string, Password string, Passwo
 	c.Validation.Required(Name)
 	c.Validation.Required(Password)
 	c.Validation.Required(Password2)
-	c.Validation.Required(Password == Password2).Key("password").Message("Claves no validas")
+	c.Validation.Required(Password == Password2).Key("password").Message("Invalid passwords")
+	var user = models.User{}
+	c.Txn.Where("email = ?", Email).First(&user)
+	c.Validation.Required(user.ID == 0).Key("email").Message("Email was already registered")
+
 	if c.Validation.HasErrors() {
 		c.Validation.Keep()
+		if user.ID != 0 {
+			return c.Redirect(routes.Account.Login())
+		}
 		return c.Redirect(routes.Account.Register())
 	}
-	var user = models.User{Email: Email, Name: Name, Active: true}
+	user = models.User{Email: Email, Name: Name, Active: true}
 	user.SetNewPassword(Password)
-	c.Txn.Create(&user)
-	c.Txn.Save(&user)
-	return c.Redirect("/")
+	if c.Txn.Error != nil {
+		fmt.Println(c.Txn.Error)
+	}
+	return c.Redirect(routes.Account.Register())
 }
 
 // Logout ot web app

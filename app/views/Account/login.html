@@ -2,40 +2,31 @@
 {{template "header.html" .}}
 
 
-<div id="content" class="site-content">
-	<div class="container">
-		<main id="main" class="site-main" role="main">
-			<article class="hentry ">
-				<div class="entry-content">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2">
-							{{template "flash.html" .}}
-							<header>
-								<h1>Login</h1>
-							</header>
-							<form action="{{ url "Account.LoginProccess" }}" method="post">
-								<div class="form-group">
-									<label for="Email">Email</label>
-									<input autofocus="true" type="email" class="form-control" id="Email" name="Email" placeholder="Email">
-								</div>
-								<div class="form-group">
-									<label for="Password">Password</label>
-									<input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
-								</div>
-								<button type="submit" class="btn btn-info pushbutton-wide">Login</button>
-							</form>
-							<div style="text-align: center;">
-								¿No tienes una cueta?
-								<a  href="{{ url "Account.Register"}}">Registrate</a>
-							</div>
-						</div>
+<section class="cover fullscreen image-bg overlay">
+    <div class="background-image-holder">
+        <img alt="image" class="background-image" src="/public/img/home12.jpg" />
+    </div>
+    <div class="container v-align-transform">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+                <div class="feature bordered text-center">
+                    <h4 class="uppercase">Login Here</h4>
+                    <form class="text-left" action="{{ url "Account.LoginProccess" }}" method="post">
+                        {{template "flash.html" .}}
+                        <input class="mb0" autofocus="true" type="email" name="Email" id="Email" placeholder="Email" />
+                        <input class="mb0" type="password" name="Password" id="Password" placeholder="Password" />
+                        <input type="submit" value="Login" />
+                    </form>
+                    <p class="mb0">Forgot your password?
+                        <a href="#">Click Here To Reset</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
 
-					</div>
-				</div>
-			</article><!-- #post-## -->
-		</main><!-- #main -->
-	</div>
-
-</div>
 
 {{template "footer.html" .}}

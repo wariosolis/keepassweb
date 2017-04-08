@@ -1,7 +1,39 @@
 {{set . "title" "Register"}}
 {{template "header.html" .}}
 
-<div class="container">
+<section class="cover fullscreen image-bg overlay">
+                <div class="background-image-holder">
+                    <img alt="image" class="background-image" src="/public/img/home2.jpg" />
+                </div>
+                <div class="container v-align-transform">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <div class="feature bordered text-center">
+                                <h4 class="uppercase">Register Here</h4>
+                                <form class="text-left" action="{{ url "Account.RegisterPost" }}" method="post">
+                                    {{template "flash.html" .}}
+
+                                    <input type="email" autofocus="true" class="form-control" id="Email" name="Email" placeholder="Email" required>
+                                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Name" required>
+                                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" required>
+                                    <input type="password" class="form-control" id="Password2" name="Password2" placeholder="Password" required>
+
+
+
+                                    <input type="submit" value="Register" />
+                                </form>
+                                <p class="mb0">By signing up, you agree to our
+                                    <a href="#">Terms Of Use</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of row-->
+                </div>
+                <!--end of container-->
+            </section>
+
+<!--div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
@@ -34,6 +66,6 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div-->
 
 {{template "footer.html" .}}
