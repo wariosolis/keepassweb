@@ -1,0 +1,80 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="uppercase mb80">My Passwords</h4>
+                <div class="tabbed-content button-tabs vertical">
+                    <style>
+                        .content {
+                            width: 100%;
+                        }
+                    </style>
+                    <ul class="tabs">
+                        {{ range $index, $element := .categories }}
+                        <li class="{{ if eq  $index 0 }}active{{ end }}">
+                            <div class="tab-title">
+                                <span>{{ $element.Name }}</span>
+                            </div>
+                            <div class="tab-content" style="width: 100%;">
+                                <h5 class="uppercase">{{ $element.Name }}</h5>
+                                <hr>
+                                <div style="text-align: center">
+                                    <a class="btn btn-lg" href="#">Add New Password</a>
+                                </div>
+                                {{ if $element.Passwd }}
+                                <table class="table cart mb48">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>URL</th>
+                                        <td  class="col-md-3"  style="text-align: center">Password</th>
+                                        <td class="col-md-2" style="text-align: center">Updated At</th>
+                                        <th class="col-md-1">&nbsp;</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    {{ range $element.Passwd }}
+                                    <tr>
+                                        <th scope="row">
+                                            {{ .Title }}
+                                        </th>
+                                        <td>
+                                            <a href="{{ .URL }}">
+                                                {{ .URL }}
+                                            </a>
+                                        </td>
+                                        <td style="text-align: center">
+                                            **********
+                                        </td>
+                                        <td style="text-align: center">
+                                            <span>{{ if eq .UpdatedAt.Year 1 }}Never{{ end }}</span>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="remove-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                <i class="ti-pencil"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    {{ end }}
+
+                                    </tbody>
+                                </table>
+                                {{ end }}
+                            </div>
+
+                        </li>
+                        {{end}}
+                    </ul>
+                </div>
+                <!--end of button tabs-->
+            </div>
+        </div>
+    </div>
+</section>
+<!--end of row-->
+{{template "footer-clean.html" .}}

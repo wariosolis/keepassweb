@@ -11,6 +11,7 @@ type User struct {
 	Email          string `gorm:"type:varchar(100);unique_index"`
 	HashedPassword []byte
 	Active         bool
+	FileName       string `gorm:"size:255"`
 }
 
 // SetNewPassword set a new hashsed password to user

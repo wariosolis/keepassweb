@@ -51,7 +51,11 @@ func InitDB() {
 	}
 	DB = db
 	DB.AutoMigrate(&models.User{})
-
+	DB.AutoMigrate(&models.Category{})
+	DB.AutoMigrate(&models.Passwd{})
+	db.Model(&models.Category{}).AddForeignKey("user_id", "users(id)", "RESTRICT", "RESTRICT")
+	db.Model(&models.Passwd{}).AddForeignKey("user_id", "users(id)", "RESTRICT", "RESTRICT")
+	db.Model(&models.Passwd{}).AddForeignKey("category_id", "categories(id)", "RESTRICT", "RESTRICT")
 }
 
 // GormController controllers begin, commit and rollback transactions

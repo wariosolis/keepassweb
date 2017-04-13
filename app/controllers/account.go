@@ -41,7 +41,7 @@ func (c Account) LoginProccess(Email string, Password string) revel.Result {
 	}
 	c.Session["user"] = user.Email
 	c.Flash.Success("Welcome, " + user.Email)
-	return c.Redirect("/")
+	return c.Redirect(routes.Dashboard.Index())
 }
 
 // Register new user

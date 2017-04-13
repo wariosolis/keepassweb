@@ -1,11 +1,10 @@
-<div class="nav-container">
+<div class="nav-container ">
     <a id="top"></a>
-    <nav>
+    <nav class="bg-dark">
         <div class="nav-bar">
             <div class="module left">
-                <a href="index.html">
-                    <img class="logo logo-light" alt="Foundry" src="/public/img/logo-light.png" />
-                    <img class="logo logo-dark" alt="Foundry" src="/public/img/logo-dark.png" />
+                <a href="{{ url "Dashboard.Index" }}">
+                    <img class="logo logo-light" alt="Foundry" src="/public/img/logo-light.png"/>
                 </a>
             </div>
             <div class="module widget-handle mobile-toggle right visible-sm visible-xs">
@@ -13,35 +12,52 @@
             </div>
             <div class="module-group right">
                 <div class="module left">
+                    {{ if .user }}
+                    <ul class="menu">
+                        <li>
+                            <a href="">
+                                My passwords
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                My Categories
+                            </a>
+                        </li>
+                    </ul>
+                    {{ else }}
                     <ul class="menu">
                         <li>
                             <a href="{{ url "Account.login" }}">
-                                Login
+                            Login
                             </a>
                         </li>
                         <li>
                             <a href="{{ url "Account.register" }}">
-                                Register
+                            Register
                             </a>
                         </li>
                     </ul>
+                    {{ end }}
                 </div>
                 <!--end of menu module-->
+                {{ if .user }}
                 <div class="module widget-handle language left">
                     <ul class="menu">
                         <li class="has-dropdown">
-                            <a href="#">ENG</a>
+                            <a href="#">{{ .user.Name }}</a>
                             <ul>
                                 <li>
-                                    <a href="#">French</a>
+                                    <a href="#">My profile</a>
                                 </li>
                                 <li>
-                                    <a href="#">Deutsch</a>
+                                    <a href="{{ url "Account.logout" }}">Logout</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
+                {{ end }}
             </div>
             <!--end of module group-->
         </div>
