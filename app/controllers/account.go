@@ -60,7 +60,7 @@ func (c Account) RegisterPost(Email string, Name string, Password string, Passwo
 	var user = models.User{}
 	c.Txn.Where("email = ?", Email).First(&user)
 	c.Validation.Required(user.ID == 0).Key("email").Message("Email was already registered")
-
+	fmt.Println(c.Validation.Errors)
 	if c.Validation.HasErrors() {
 		c.Validation.Keep()
 		if user.ID != 0 {
@@ -70,6 +70,8 @@ func (c Account) RegisterPost(Email string, Name string, Password string, Passwo
 	}
 	user = models.User{Email: Email, Name: Name, Active: true}
 	user.SetNewPassword(Password)
+	fmt.Println(c.Txn.Error)
+	c.Txn.Save(&user)
 	if c.Txn.Error != nil {
 		fmt.Println(c.Txn.Error)
 	}
